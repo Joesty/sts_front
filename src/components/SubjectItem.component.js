@@ -29,9 +29,8 @@ class SubjectItem extends Component {
             <li className="Subject">
                 <strong>{this.props.subject.name}</strong>: {this.props.subject.semester} 
                 <button onClick={this.deleteSubject.bind(this, this.props.subject.id)}>Delete</button> 
-                <Link to="/subjects/details">Details</Link>
+                <Link to={`/subject/details/${this.props.subject.id}`}>Details</Link>
             </li>
-            <Route path='/subjects/details' render={()=><SubjectInfo  subject={this.props.subject} />}/>
         </div>
       );
     }
