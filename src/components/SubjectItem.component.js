@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import SubjectInfo from './SubjectInfo';
+import SubjectInfo from './SubjectInfo.component';
 import {
     BrowserRouter as Router,
     Route,
@@ -27,13 +27,13 @@ class SubjectItem extends Component {
       return (
         <div>
             <li className="Subject">
-                <strong>{this.props.subject.name}</strong>: {this.props.subject.semester} 
-                <button onClick={this.deleteSubject.bind(this, this.props.subject.id)}>Delete</button> 
+                <strong>{this.props.subject.name}</strong>: {this.props.subject.semester}
+                <button onClick={this.deleteSubject.bind(this, this.props.subject.id)}>Delete</button>
                 <Link to={`/subject/details/${this.props.subject.id}`}>Details</Link>
             </li>
         </div>
       );
     }
   }
-  
+
   export default SubjectItem;

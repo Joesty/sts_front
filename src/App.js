@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Subjects from './components/Subjects.component';
+import SubjectsPage from './components/SubjectsPage.component';
 import AddSubject from './components/AddSubject.component';
 import SubjectInfo from './components/SubjectInfo.component';
 
@@ -33,7 +33,7 @@ class App extends Component {
     subjects.push(subject);
     this.setState({subjects:subjects});
   }
-  
+
   handleDeleteSubject(id){
     let subjects = this.state.subjects;
     let index = subjects.findIndex(x => x.id === id);
@@ -49,19 +49,11 @@ class App extends Component {
             <li><Link to="/addsubject">Add Subject</Link></li>
             <li><Link to="/subjects">Subjects</Link></li>
         </ul>
-        {/*<AddSubject addSubject={this.handleAddSubject.bind(this)}/>*/}
-        {/*<Subjects subjects={this.state.subjects} onDelete={this.handleDeleteSubject.bind(this)} />*/}
         <Route path="/addsubject" render={()=> <AddSubject addSubject={this.handleAddSubject.bind(this)}/> } />
-        <Route path="/subject/details/:subjectId"  render={({ match: { params: { subjectId } } })=>{
-          if (!this.state.subjects) return null
-          const subj = this.state.subjects && this.state.subjects.find(({ id }) => id == subjectId )
-          if (!subj) return null
-
-          return (<SubjectInfo  subject={subj} />
-        )}}/>
-        <Route path="/subjects" exec render={()=><Subjects subjects={this.state.subjects} onDelete={this.handleDeleteSubject.bind(this)} />}/>
+        <Route path="/subject/details/:subjectId"  component={SubjectInfo} />
+        <Route path="/subjects" component={SubjectsPage} />
       </div>
-      
+
       </Router>
     );
   }
