@@ -1,4 +1,4 @@
-import { LOAD_SUBJECTS_SUCCESS, CREATE_SUBJECTS_SUCCESS } from '../actions/subjects.actions';
+import { LOAD_SUBJECTS_SUCCESS, CREATE_SUBJECTS_SUCCESS, GET_SUBJECT_SUCCESS } from '../actions/subjects.actions';
 
 const defaultState = { all: [], current: {} };
 
@@ -8,6 +8,8 @@ export default function subjectReducer(state = defaultState, action) {
       return { ...state, all: action.payload };
     case CREATE_SUBJECTS_SUCCESS:
       return { ...state };
+    case CREATE_SUBJECTS_SUCCESS:
+      return { ...state, current: action.payload };
     default:
       return state;
   }

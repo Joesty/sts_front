@@ -13,3 +13,14 @@ export const addSubject = (data) => {
   })
   .then(r => r.json());
 }
+
+export const removeSubject = (id) => { 
+  return fetch(`http://localhost:5000/subjects/${id}`, {
+    method: 'DELETE',
+  });
+}
+
+export const getByIdSubject = (id) => { 
+  return fetch(`http://localhost:5000/subjects/${id}`);
+}
+
