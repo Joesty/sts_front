@@ -1,7 +1,15 @@
 import React, { Component } from 'react';
-import Subjects from './components/Subjects';
-import AddSubject from './components/AddSubject'
-import './App.css';
+import SubjectsPage from './components/SubjectsPage.component';
+import AddSubject from './components/AddSubject.component';
+import SubjectInfo from './components/SubjectInfo.component';
+
+import {
+  BrowserRouter as Router,
+  Route,
+  Link,
+  Switch,
+  Redirect
+} from 'react-router-dom';
 
 const url = "http://localhost:5000/subjects"
 
@@ -10,6 +18,7 @@ class App extends Component {
     super();
     this.state = {
       subjects: [],
+      test: {name: 'hi', hours_lections: 'many'}
     };
   }
 
@@ -24,7 +33,7 @@ class App extends Component {
     subjects.push(subject);
     this.setState({subjects:subjects});
   }
-  
+
   handleDeleteSubject(id){
     let subjects = this.state.subjects;
     let index = subjects.findIndex(x => x.id === id);
@@ -34,10 +43,18 @@ class App extends Component {
 
   render() {
     return (
+      <Router>
       <div className="App">
-        <AddSubject addSubject={this.handleAddSubject.bind(this)}/>
-        <Subjects subjects={this.state.subjects} onDelete={this.handleDeleteSubject.bind(this)} />
+        <ul>
+            <li><Link to="/addsubject">Add Subject</Link></li>
+            <li><Link to="/subjects">Subjects</Link></li>
+        </ul>
+        <Route path="/addsubject" render={()=> <AddSubject addSubject={this.handleAddSubject.bind(this)}/> } />
+        <Route path="/subject/details/:subjectId"  component={SubjectInfo} />
+        <Route path="/subjects" component={SubjectsPage} />
       </div>
+
+      </Router>
     );
   }
 }
