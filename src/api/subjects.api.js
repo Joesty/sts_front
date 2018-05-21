@@ -21,6 +21,6 @@ export const removeSubject = (id) => {
 }
 
 export const getByIdSubject = (id) => { 
-  return fetch(`http://localhost:5000/subjects/${id}`);
+  return fetch(`http://localhost:5000/subjects/${id}`).then(r => r.json());
 }
 

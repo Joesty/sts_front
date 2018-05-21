@@ -2,21 +2,37 @@ import React, {PropTypes} from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router';
 
+import SubjectInfo from '../components/subjects/SubjectInfo.component';
+import * as subjectActions from '../actions/subjects.actions';
+
 class Subject extends React.Component {
+
+  componentDidMount() {
+    const { match, getSubject } = this.props;
+    
+    getSubject(match.params.id);
+  }
   render() {
     const { subject } = this.props;
 
     return (
-      <div className="col-md-8 col-md-offset-2">
-        <h1>{subject.name}</h1>
-        <p>breed: {subject.semester}</p>
+      <div>
+        <SubjectInfo subject={subject}/>
       </div>
     );
   }
 };
 
 const mapStateToProps = (state) => {
-  return { subject: state.subjects.current };
+  return { 
+    subject: state.subjects.current
+  };
 };
 
-export default withRouter(connect(mapStateToProps)(Subject));
+const mapActionsToProps = (dispatch) => {
+  return {
+    getSubject: (args) => dispatch(subjectActions.getSubject(args)),
+  };
+};
+
+export default withRouter(connect(mapStateToProps, mapActionsToProps)(Subject));

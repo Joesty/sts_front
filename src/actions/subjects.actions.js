@@ -40,7 +40,7 @@ export const GET_SUBJECT_SUCCESS = 'GET_SUBJECT_SUCCESS';
 export const getSubject = (id) => {
   return (dispatch) => {
     return getByIdSubject(id)
-      .then(response => dispatch({ type: GET_SUBJECT_SUCCESS, payload: response }))
+      .then(subject => dispatch({ type: GET_SUBJECT_SUCCESS, payload: subject }))
       .catch(error => dispatch({ type: 'ERR', payload: error }));
   };
 }

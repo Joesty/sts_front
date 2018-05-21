@@ -1,10 +1,13 @@
 import React from 'react';
+import {
+  Link
+} from 'react-router-dom';
 
-const SubjectList = ({ subjects, deleteAction, getAction }) => {
+const SubjectList = ({ subjects, deleteAction }) => {
   const listOfSubjects = subjects.map(subject => (
     <tr key={subject.id}>
       <th scope="row">{subject.id}</th>
-      <th onClick={getAction.bind(null, subject.id)}>{subject.name}</th>
+      <th><Link to={`/subjects/details/${subject.id}`}>{subject.name}</Link></th>
       <th>{subject.credits}</th>
       <th>{subject.hours_labs}</th>
       <th>{subject.hours_lections}</th>

@@ -8,8 +8,8 @@ export default function subjectReducer(state = defaultState, action) {
       return { ...state, all: action.payload };
     case CREATE_SUBJECTS_SUCCESS:
       return { ...state };
-    case CREATE_SUBJECTS_SUCCESS:
-      return { ...state, current: action.payload };
+    case GET_SUBJECT_SUCCESS:
+      return { ...state, current: action.payload.rows[0] };
     default:
       return state;
   }
