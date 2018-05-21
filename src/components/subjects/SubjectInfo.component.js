@@ -28,7 +28,7 @@ const SubjectInfo = ({ subject }) => (
 		</li>
 		<li class="list-group-item">
 			Hours individual: {subject.hours_individual}
-		</li >
+		</li>
 		<li class="list-group-item">
 			Hours consultation: {subject.hours_consultations}
 		</li>
