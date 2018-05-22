@@ -19,6 +19,7 @@ export const createSubject = (subject) => {
   return (dispatch) => {
     return addSubject(subject)
       .then(response => dispatch({ type: CREATE_SUBJECTS_SUCCESS, payload: response }))
+      .then(() => dispatch(loadSubjects()))
       .then(() => dispatch(redirect('/subjects/list')))
       .catch(error => dispatch({ type: 'ERR', payload: error }));
   };
