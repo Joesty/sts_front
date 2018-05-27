@@ -4,6 +4,9 @@ import Redirector from './components/shared/Redirector.component';
 import Subjects from './pages/Subjects.component';
 import SubjectManage from './pages/SubjectManage.component';
 import Subject from './pages/Subject.component';
+import Relations from './pages/Relations.component'
+import RelationManage from './pages/RelationManage.component'
+import Graph from './pages/Graph.component';
 
 import {
   BrowserRouter as Router,
@@ -31,8 +34,23 @@ class App extends Component {
                   </Link>
                 </li>
                 <li class="nav-item">
+                  <Link class="nav-link" to="/relations/create">
+                    Add Relation
+                  </Link>
+                </li>
+                <li class="nav-item">
                   <Link class="nav-link" to="/subjects/list">
                     Subjects
+                  </Link>
+                </li>
+                <li class="nav-item">
+                  <Link class="nav-link" to="/relations/list">
+                    Relations
+                  </Link>
+                </li>
+                <li class="nav-item">
+                  <Link class="nav-link" to="/graph">
+                    Graph
                   </Link>
                 </li>
               </ul>
@@ -43,6 +61,10 @@ class App extends Component {
             <Route exact path="/subjects/update/:id" component={SubjectManage} />
             <Route exact path="/subjects/details/:id" component={Subject} />
             <Route exact path="/subjects/list" component={Subjects} />
+            <Route exact path="/relations/create" component={RelationManage} />
+            <Route exact path="/relations/list" component={Relations} />
+            <Route exact path="/graph" component={Graph} />
+            
           </div>
           <Redirector />
         </div>
