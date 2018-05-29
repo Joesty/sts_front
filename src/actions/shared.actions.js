@@ -1,9 +1,13 @@
 
 import { loadSubjects } from './subjects.actions';
+import { loadRelations } from './relations.actions';
+import { loadGraph } from './graph.actions';
 
 export const initialize = () => {
   return (dispatch) => {
     dispatch(loadSubjects());
+    dispatch(loadRelations());
+    dispatch(loadGraph());
   };
 };
 
