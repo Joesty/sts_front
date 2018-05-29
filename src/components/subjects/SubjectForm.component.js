@@ -14,7 +14,6 @@ class SubjectForm extends Component {
 
   handleSubmit () { 
     this.props.submit(this.state.entity);
-    console.log(this.state.entity);
   };
 
   onChange(field, event) {
@@ -42,75 +41,75 @@ class SubjectForm extends Component {
       );
     });
     return (
-      <div class="card mt-3">
-        <div class="card-header">
+      <div className="card">
+        <div className="card-header">
           <h4>Add Subject</h4>
         </div>
-        <div class="card-body">
+        <div className="card-body">
           <form>
-            <div class="form-group">
+            <div className="form-group">
               <label>Subject Name:</label>
               <br />
               <input className="form-control" type="text" onChange={this.onChange.bind(this, 'name')} />
             </div>
-            <div class="form-group">
+            <div className="form-group">
               <label>Subject Semester:</label>
-              <select class="form-control" ref="semester" onChange={this.onChange.bind(this, 'semester')}>
+              <select className="form-control" ref="semester" onChange={this.onChange.bind(this, 'semester')}>
                 {semesterOptions}
               </select>
             </div>
-            <div class="form-group">
+            <div className="form-group">
               <label>Program:</label>
               <br />
               <input className="form-control" type="text" onChange={this.onChange.bind(this, 'work_program')} />
             </div>
-            <div class="form-group">
+            <div className="form-group">
               <label>Control Type:</label>
-              <select class="form-control" ref="control_type" onChange={this.onChange.bind(this, 'control_type')}>
+              <select className="form-control" ref="control_type" onChange={this.onChange.bind(this, 'control_type')}>
                 {controlOptions}
               </select>
             </div>
-            <div class="form-group">
+            <div className="form-group">
               <label>Credits:</label>
               <br />
               <input className="form-control" type="text" onChange={this.onChange.bind(this, 'credits')} />
             </div>
-            <div class="form-group">
+            <div className="form-group">
               <label>Hours lections:</label>
               <br />
               <input className="form-control" type="text" onChange={this.onChange.bind(this, 'hours_lections')} />
             </div>
-            <div class="form-group">
+            <div className="form-group">
               <label>Hours labs:</label>
               <br />
               <input className="form-control" type="text" onChange={this.onChange.bind(this, 'hours_labs')} />
             </div>
-            <div class="form-group">
+            <div className="form-group">
               <label>Hours seminars:</label>
               <br />
               <input className="form-control" type="text" onChange={this.onChange.bind(this, 'hours_seminars')} />
             </div>
-            <div class="form-group">
+            <div className="form-group">
               <label>Hours individual:</label>
               <br />
               <input className="form-control" type="text" onChange={this.onChange.bind(this, 'hours_individual')} />
             </div>
-            <div class="form-group">
+            <div className="form-group">
               <label>Hours consultations:</label>
               <br />
               <input className="form-control" type="text" onChange={this.onChange.bind(this, 'hours_consultations')} />
             </div>
-            <div class="form-group">
+            <div className="form-group">
               <label>Hours practice:</label>
               <br />
               <input className="form-control" type="text" onChange={this.onChange.bind(this, 'hours_practice')} />
             </div>
-            <div class="form-group">
+            <div className="form-group">
               <label>Hours self:</label>
               <br />
               <input className="form-control" type="text" onChange={this.onChange.bind(this, 'hours_self')} />
             </div>
-            <div class="form-group">
+            <div className="form-group">
               <label>Hours prod:</label>
               <br />
               <input className="form-control" type="text" onChange={this.onChange.bind(this, 'hours_prod')} />
@@ -120,7 +119,6 @@ class SubjectForm extends Component {
               className="btn btn-primary"
               onClick={this.handleSubmit.bind(this)}
             >
-              {' '}
               Submit
             </button>
           </form>

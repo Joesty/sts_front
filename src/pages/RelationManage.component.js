@@ -1,4 +1,4 @@
-import React, {PropTypes} from 'react';
+import React, { PropTypes } from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router';
 
@@ -10,24 +10,26 @@ class RelationManage extends React.Component {
     const { subjects, relation, submit } = this.props;
 
     return (
-      <div className="col-md-8 col-md-offset-2">
+      <div className="container col-md-8 col-md-offset-2">
         <RelationForm submit={submit} subjects={subjects} relation={relation} />
       </div>
     );
   }
-};
+}
 
-const mapStateToProps = (state) => {
-  return { 
+const mapStateToProps = state => {
+  return {
     relation: state.relations.current,
     subjects: state.subjects.all
   };
 };
 
-const mapActionsToProps = (dispatch) => {
-  return { 
-    submit: (args) => dispatch(relationActions.createRelation(args))
+const mapActionsToProps = dispatch => {
+  return {
+    submit: args => dispatch(relationActions.createRelation(args))
   };
 };
 
-export default withRouter(connect(mapStateToProps, mapActionsToProps)(RelationManage));
+export default withRouter(
+  connect(mapStateToProps, mapActionsToProps)(RelationManage)
+);

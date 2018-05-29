@@ -1,32 +1,31 @@
 import React from 'react';
-import {
-  Link
-} from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 const GraphList = ({ graphs, deleteAction }) => {
   const listOfGraphs = graphs.map(graph => (
     <tr key={graph.id}>
-      <th scope="row">{graph.id}</th>
-      <th>{graph.name}</th>
-      <th>
+      <td scope="row">{graph.id}</td>
+      <td>{graph.name}</td>
+      <td>
         <button
           onClick={deleteAction.bind(null, graph.id)}
           type="button"
-          class="close"
+          className="close"
           aria-label="Close"
         >
           <span aria-hidden="true">&times;</span>
         </button>
-      </th>
+      </td>
     </tr>
   ));
 
   return (
-    <table class="table table-striped">
+    <table className="table table-bordered mt-3">
       <thead>
         <tr>
           <th scope="col">#</th>
           <th scope="col">Name</th>
+          <th scope="col">Action</th>
         </tr>
       </thead>
       <tbody>{listOfGraphs}</tbody>

@@ -7,6 +7,7 @@ import Subject from './pages/Subject.component';
 import Relations from './pages/Relations.component'
 import RelationManage from './pages/RelationManage.component'
 import Graph from './pages/Graph.component';
+import styles from './styles/index.css';
 
 import {
   BrowserRouter as Router,
@@ -25,38 +26,38 @@ class App extends Component {
     return (
       <Router>
         <div className="App">
-          <nav class="navbar navbar-dark bg-dark">
-            <div class="container">
-              <ul class="nav">
-                <li class="nav-item">
-                  <Link class="nav-link" to="/subjects/create">
+          <nav className="navbar navbar-dark bg-dark">
+            <div className="container">
+              <ul className="nav">
+                <li className="nav-item">
+                  <Link className="nav-link" to="/subjects/create">
                     Add Subject
                   </Link>
                 </li>
-                <li class="nav-item">
-                  <Link class="nav-link" to="/relations/create">
+                <li className="nav-item">
+                  <Link className="nav-link" to="/relations/create">
                     Add Relation
                   </Link>
                 </li>
-                <li class="nav-item">
-                  <Link class="nav-link" to="/subjects/list">
+                <li className="nav-item">
+                  <Link className="nav-link" to="/subjects/list">
                     Subjects
                   </Link>
                 </li>
-                <li class="nav-item">
-                  <Link class="nav-link" to="/relations/list">
+                <li className="nav-item">
+                  <Link className="nav-link" to="/relations/list">
                     Relations
                   </Link>
                 </li>
-                <li class="nav-item">
-                  <Link class="nav-link" to="/graph">
+                <li className="nav-item">
+                  <Link className="nav-link" to="/graph">
                     Graph
                   </Link>
                 </li>
               </ul>
             </div>
           </nav>
-          <div class="container">
+          <div className="container mt-3 mb-3">
             <Route exact path="/subjects/create" component={SubjectManage} />
             <Route exact path="/subjects/update/:id" component={SubjectManage} />
             <Route exact path="/subjects/details/:id" component={Subject} />

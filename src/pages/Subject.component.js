@@ -16,7 +16,7 @@ class Subject extends React.Component {
     const { subject } = this.props;
 
     return (
-      <div>
+      <div className="container">
         <SubjectInfo subject={subject}/>
       </div>
     );

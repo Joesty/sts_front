@@ -1,19 +1,21 @@
 import React from 'react';
-import {
-  Link
-} from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 const RelationList = ({ relations, deleteAction }) => {
   const listOfRelations = relations.map(relation => (
     <tr key={relation.id}>
       <th scope="row">{relation.id}</th>
-      <th><Link to={`/subjects/details/${relation.pid}`}>{relation.pid}</Link></th>
-      <th><Link to={`/subjects/details/${relation.cid}`}>{relation.cid}</Link></th>
+      <th>
+        <Link to={`/subjects/details/${relation.pid}`}>{relation.pid}</Link>
+      </th>
+      <th>
+        <Link to={`/subjects/details/${relation.cid}`}>{relation.cid}</Link>
+      </th>
       <th>
         <button
           onClick={deleteAction.bind(null, relation.id)}
           type="button"
-          class="close"
+          className="close"
           aria-label="Close"
         >
           <span aria-hidden="true">&times;</span>
@@ -23,7 +25,7 @@ const RelationList = ({ relations, deleteAction }) => {
   ));
 
   return (
-    <table class="table table-striped">
+    <table className="table table-striped">
       <thead>
         <tr>
           <th scope="col">#</th>

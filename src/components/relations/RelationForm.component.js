@@ -4,7 +4,7 @@ import _ from 'lodash';
 class RelationForm extends Component {
   constructor(props) {
     super(props);
-    this.state = { }; // declared default state for selectors
+    this.state = { entity: {} }; // declared default state for selectors
   }
 
   static defaultProps = {
@@ -12,13 +12,17 @@ class RelationForm extends Component {
     controls_type: ['Exam', 'Test', 'None']
   };
 
-  handleSubmit () { 
+  handleSubmit() {
+    const keys = Object.keys(this.state.entity);
+
+    if (!keys.length) {
+      return;
+    }
+
     this.props.submit(this.state.entity);
-    console.log(this.state.entity);
-  };
+  }
 
   onChange(field, event) {
-    console.log(event.target.value);
     this.setState({
       entity: {
         ...this.state.entity,
@@ -37,21 +41,31 @@ class RelationForm extends Component {
       );
     });
     return (
-      <div class="card mt-3">
-        <div class="card-header">
+      <div className="card mt-3">
+        <div className="card-header">
           <h4>Add Relation</h4>
         </div>
-        <div class="card-body">
+        <div className="card-body">
           <form>
-            <div class="form-group">
+            <div className="form-group">
               <label>Parent Subject:</label>
-              <select class="form-control" ref="subject" onChange={this.onChange.bind(this, 'pid')}>
+              <select
+                className="form-control"
+                ref="subject"
+                onChange={this.onChange.bind(this, 'pid')}
+              >
+                <option>Choose...</option>
                 {subjectOptions}
               </select>
             </div>
-            <div class="form-group">
+            <div className="form-group">
               <label>Child Subject:</label>
-              <select class="form-control" ref="subject" onChange={this.onChange.bind(this, 'cid')}>
+              <select
+                className="form-control"
+                ref="subject"
+                onChange={this.onChange.bind(this, 'cid')}
+              >
+                <option>Choose...</option>
                 {subjectOptions}
               </select>
             </div>
@@ -60,7 +74,6 @@ class RelationForm extends Component {
               className="btn btn-primary"
               onClick={this.handleSubmit.bind(this)}
             >
-              {' '}
               Submit
             </button>
           </form>

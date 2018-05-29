@@ -10,7 +10,7 @@ class SubjectManage extends React.Component {
     const { subject, submit } = this.props;
 
     return (
-      <div className="col-md-8 col-md-offset-2">
+      <div className="container col-md-8 col-md-offset-2">
         <SubjectForm submit={submit} subject={subject} />
       </div>
     );

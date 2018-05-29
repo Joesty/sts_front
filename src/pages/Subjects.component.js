@@ -11,7 +11,7 @@ class Subjects extends React.Component {
     const { subjects, deleteSubject, getSubject } = this.props;
 
     return(
-      <div>
+      <div className="container">
         <h4 className="mt-3 mb-3">Subjects:</h4>
         <div>
           <SubjectList getAction={getSubject} deleteAction={deleteSubject} subjects={subjects} />

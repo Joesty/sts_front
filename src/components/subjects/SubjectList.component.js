@@ -17,7 +17,7 @@ const SubjectList = ({ subjects, deleteAction }) => {
         <button
           onClick={deleteAction.bind(null, subject.id)}
           type="button"
-          class="close"
+          className="close"
           aria-label="Close"
         >
           <span aria-hidden="true">&times;</span>
@@ -27,7 +27,7 @@ const SubjectList = ({ subjects, deleteAction }) => {
   ));
 
   return (
-    <table class="table table-striped">
+    <table className="table table-striped">
       <thead>
         <tr>
           <th scope="col">#</th>
