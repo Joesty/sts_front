@@ -29,7 +29,12 @@ class GraphForm extends Component {
   render() {
     const { subjects, relations } = this.props;
     const subjectOptions = subjects.map(subject => {
-      const parents = relations.filter(x => x.cid === subject.id);
+      const parents = [];
+      relations.forEach(relation => {
+        if (relation.cid === subject.id){
+          parents.push(relation.pid);
+        }
+      });
       const graphObj = {
         id: subject.id,
         name: subject.name,
